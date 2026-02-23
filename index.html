@@ -3,225 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>defandryan.biz.id - Tech Portfolio</title>
+    <title>defandryan</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
-
-        :root {
-            --accent: #6366f1;
-            --accent-glow: rgba(99, 102, 241, 0.3);
-            --glass: rgba(255, 255, 255, 0.02);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --text-main: #f8fafc;
-            --text-dim: #94a3b8;
-            --bg-dark: #000000;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            overflow-x: hidden;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-            background-position: center center;
-        }
-
-        .bg-glow {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-            z-index: -1;
-            filter: blur(80px);
-            animation: pulse 8s infinite alternate;
-        }
-
-        @keyframes pulse {
-            from { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
-            to { opacity: 0.6; transform: translate(-50%, -50%) scale(1.3); }
-        }
-
-        .container {
-            width: 100%;
-            max-width: 450px;
-            padding: 60px 20px;
-            position: relative;
-        }
-
-        .profile-section {
-            text-align: center;
-            margin-bottom: 40px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-        }
-
-        .profile-image-wrapper {
-            position: relative;
-            display: inline-block;
-            padding: 4px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent), transparent);
-            margin-bottom: 20px;
-        }
-
-        .profile-image {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            object-fit: cover;
-            display: block;
-            border: 3px solid var(--bg-dark);
-        }
-
-        .profile-name {
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-            margin-bottom: 8px;
-            background: linear-gradient(to right, #fff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 5px 14px;
-            border-radius: 20px;
-            background: rgba(99, 102, 241, 0.1);
-            font-size: 0.75rem;
-            color: var(--accent);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            margin-bottom: 15px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .links-container {
-            display: grid;
-            gap: 14px;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            padding: 18px;
-            background: var(--glass);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            text-decoration: none;
-            color: var(--text-main);
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-        }
-
-        .social-link:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: var(--accent);
-            transform: scale(1.02) translateY(-4px);
-            box-shadow: 0 15px 35px -12px var(--accent-glow);
-        }
-
-        .icon-box {
-            width: 46px;
-            height: 46px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 18px;
-            font-size: 1.4rem;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid var(--glass-border);
-            transition: 0.4s;
-        }
-
-        .social-link:hover .icon-box {
-            background: var(--accent);
-            color: white;
-            border-color: var(--accent);
-            transform: rotate(-5deg);
-        }
-
-        .link-info .title {
-            font-weight: 600;
-            font-size: 1rem;
-            display: block;
-            margin-bottom: 2px;
-        }
-
-        .link-info .subtitle {
-            font-size: 0.8rem;
-            color: var(--text-dim);
-        }
-
-        .chevron {
-            margin-left: auto;
-            opacity: 0.3;
-            transition: 0.3s;
-        }
-
-        .social-link:hover .chevron {
-            opacity: 1;
-            transform: translateX(5px);
-            color: var(--accent);
-        }
-
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .footer {
-            margin-top: 60px;
-            text-align: center;
-            font-size: 0.7rem;
-            color: var(--text-dim);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .status-dot {
-            height: 8px;
-            width: 8px;
-            background-color: #22c55e;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 5px;
-            box-shadow: 0 0 8px #22c55e;
-            animation: blink 2s infinite;
-        }
-
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0.4; }
-            100% { opacity: 1; }
-        }
-
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <div class="bg-glow"></div>
 
     <div class="container">
@@ -231,48 +17,17 @@
             </div>
             <h1 class="profile-name">defandryan</h1>
             <div class="badge">AI Engineer & Backend Developer</div>
-            <p style="color: var(--text-dim); font-size: 0.9rem; font-weight: 300; line-height: 1.6;">Architecting intelligence through clean code and scalable infrastructure.</p>
+            <p class="bio">Architecting intelligence through clean code and scalable infrastructure.</p>
         </header>
 
         <div class="links-container" id="links-list"></div>
 
         <footer class="footer">
-            <span class="status-dot"></span> Age: <span style="color: #22c55e;">15</span><br><br>
-            &copy; 2026 • defandryan.biz.id
+            <span class="status-dot"></span> Age: <span class="age-text">15</span><br><br>
+            &copy; 2026 • defandryan
         </footer>
     </div>
 
-    <script>
-        const links = [
-            { title: 'Tiktok', subtitle: 'Tiktok gw nih', icon: 'fa-brands fa-tiktok', url: 'https://tiktok.com/@depstore_11' },
-            { title: 'Telegram', subtitle: 'Telegram Channel', icon: 'fa-brands fa-telegram', url: 'https://t.me/depstore11' },
-            { title: 'Whatsapp utama', subtitle: 'Jan chat no ini', icon: 'fa-brands fa-whatsapp', url: 'https://wa.me/628113095566' },
-            { title: 'Whatsapp', subtitle: 'WhatsApp Personal', icon: 'fa-brands fa-whatsapp', url: 'https://wa.me/6288242449961' }
-        ];
-
-        const container = document.getElementById('links-list');
-
-        links.forEach((link, index) => {
-            const item = document.createElement('a');
-            item.href = link.url;
-            item.className = 'social-link';
-            item.target = '_blank';
-            item.style.animationDelay = `${0.2 + (index * 0.1)}s`;
-            
-            item.innerHTML = `
-                <div class="icon-box">
-                    <i class="${link.icon}"></i>
-                </div>
-                <div class="link-info">
-                    <span class="title">${link.title}</span>
-                    <span class="subtitle">${link.subtitle}</span>
-                </div>
-                <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-            `;
-            container.appendChild(item);
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
